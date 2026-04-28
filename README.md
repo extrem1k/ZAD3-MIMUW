@@ -5,34 +5,56 @@ Wartością liczby kolosalnej jest suma potęg dwójki o wykładnikach będącyc
 
 Powiemy, że liczba kolosalna jest znormalizowana, jeśli jej cyfry są znormalizowane, i są one uporządkowane (ściśle) malejąco według wartości. Każda nieujemna liczba całkowita ma dokładnie jedną reprezentację w postaci znormalizowanej liczby kolosalnej.
 
+
 Tekstowym zapisem liczby kolosalnej jest słowo języka z poniższą gramatyką w rozszerzonej notacji BNF:
 
+
 <kolosalna> ::= { "1" <cyfra> } "0"
+
 <cyfra> ::= <kolosalna>
+
 Można udowodnić, że jest to język słów powstałych przez dopisanie symbolu 0 na koniec wyrażenia nawiasowego, w którym 1 pełni rolę nawiasu otwierającego, a 0 to nawias zamykający.
+
 
 Tekstowy zapis liczby kolosalnej można przekształcić na niepozycyjny zapis binarny. W tym celu:
 
+
+
 symbole 0, 1, zamieniamy na bity 0, 1;
+
 
 na końcu dopisujemy tyle bitów 0, ile potrzeba, by długość ciągu była podzielna przez osiem;
 
+
 ciąg bitów dzielimy na porcje po osiem i umieszczamy je w kolejnych bajtach;
+
 
 w danym bajcie bity zapisujemy, zaczynając od pozycji najbardziej znaczących.
 
+
 Wszystkie liczby kolosalne, których zapisem są poniższe słowa:
 
+
 101010101010101010100
+
 110010110011001010100
+
 1100101110001010100
+
 1100101010101110000
+
 1100110010101110000
+
 11100010101110000
+
 10101110001110000
+
 11100011100011000
+
 1101100011000
+
 1110010011000
+
 mają wartość dziesięć. Ostatnia z nich jest znormalizowana.
 
 Inne przykłady znormalizowanych liczb kolosalnych są poniżej:
