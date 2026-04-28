@@ -1,16 +1,26 @@
 Wprowadzenie
 Liczbą kolosalną nazwiemy reprezentację nieujemnej liczby całkowitej za pomocą listy cyfr, które również są liczbami kolosalnymi. Reprezentacja ta, opisana w inny, ale równoważny sposób, była rozważana przez Donalda Knutha.
+
 Wartością liczby kolosalnej jest suma potęg dwójki o wykładnikach będących wartościami cyfr tej liczby.
+
 Powiemy, że liczba kolosalna jest znormalizowana, jeśli jej cyfry są znormalizowane, i są one uporządkowane (ściśle) malejąco według wartości. Każda nieujemna liczba całkowita ma dokładnie jedną reprezentację w postaci znormalizowanej liczby kolosalnej.
+
 Tekstowym zapisem liczby kolosalnej jest słowo języka z poniższą gramatyką w rozszerzonej notacji BNF:
+
 <kolosalna> ::= { "1" <cyfra> } "0"
 <cyfra> ::= <kolosalna>
 Można udowodnić, że jest to język słów powstałych przez dopisanie symbolu 0 na koniec wyrażenia nawiasowego, w którym 1 pełni rolę nawiasu otwierającego, a 0 to nawias zamykający.
+
 Tekstowy zapis liczby kolosalnej można przekształcić na niepozycyjny zapis binarny. W tym celu:
+
 symbole 0, 1, zamieniamy na bity 0, 1;
+
 na końcu dopisujemy tyle bitów 0, ile potrzeba, by długość ciągu była podzielna przez osiem;
+
 ciąg bitów dzielimy na porcje po osiem i umieszczamy je w kolejnych bajtach;
+
 w danym bajcie bity zapisujemy, zaczynając od pozycji najbardziej znaczących.
+
 Wszystkie liczby kolosalne, których zapisem są poniższe słowa:
 
 101010101010101010100
@@ -24,6 +34,7 @@ Wszystkie liczby kolosalne, których zapisem są poniższe słowa:
 1101100011000
 1110010011000
 mają wartość dziesięć. Ostatnia z nich jest znormalizowana.
+
 Inne przykłady znormalizowanych liczb kolosalnych są poniżej:
 
 0 to 0
@@ -70,25 +81,45 @@ Pozycyjny zapis binarny trzech ostatnich wymienionych wartości miałby więcej 
 
 Polecenie
 Zaimplementuj kalkulator umożliwiający wykonywanie obliczeń na liczbach kolosalnych.
+
 Kalkulator ma pamięć, która jest stosem. Na początku stos jest pusty.
+
 Program czyta z wejścia polecenia i wykonuje je. Kończy pracę, gdy polecenia się skończą.
+
 Postać danych
 Dane to ciąg wierszy. W każdym wierszu jest jedno polecenie.
+
 Program rozpoznaje polecenia i wykonuje odpowiednie akcje:
+
 tekstowy zapis liczby kolosalnej, niekoniecznie znormalizowanej:
+
 włóż na stos wczytaną liczbę;
+
 kropka '.':
+
 zdejmij liczbę ze stosu i wypisz ją na wyjście;
+
 dwukropek ':':
+
 zduplikuj liczbę, czyli zdejmij ją ze stosu i włóż ją na stos dwukrotnie;
+
 daszek '^':
+
 zdejmij liczbę ze stosu i włóż na stos potęgę 2, w której ta liczba jest wykładnikiem;
+
 plus '+':
+
 zdejmij ze stosu dwie liczby i włóż na stos ich sumę;
+
 razy '*':
+
 zdejmij ze stosu dwie liczby i włóż na stos ich iloczyn.
+
 Oprócz znaków wymienionych powyżej, na wejściu nie ma żadnych innych.
+
 Zakładamy, że zawsze, gdy program będzie zdejmował wartość ze stosu, stos będzie niepusty.
+
 Nie zakładamy, że po wykonaniu ostatniego polecenia stos będzie pusty.
+
 Postać wyniku
 Wynikiem programu jest ciąg wierszy, po jednym dla każdego wykonanego polecenia kropka '.'. W wierszu jest tekstowa reprezentacja znormalizowanej liczby kolosalnej.
