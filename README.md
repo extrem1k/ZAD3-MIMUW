@@ -9,10 +9,10 @@ Powiemy, że liczba kolosalna jest znormalizowana, jeśli jej cyfry są znormali
 Tekstowym zapisem liczby kolosalnej jest słowo języka z poniższą gramatyką w rozszerzonej notacji BNF:
 
 
-<kolosalna> ::= { "1" <cyfra> } "0"
+kolosalna ::= { "1" cyfra } "0"
 
 
-<cyfra> ::= <kolosalna>
+cyfra ::= kolosalna
 
 
 Można udowodnić, że jest to język słów powstałych przez dopisanie symbolu 0 na koniec wyrażenia nawiasowego, w którym 1 pełni rolę nawiasu otwierającego, a 0 to nawias zamykający.
